@@ -24,43 +24,19 @@ const projects = (await getCollection('work'))
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
 
-// import { useEffect, useState } from 'react';
-// import { getCollection } from 'astro:content';
-
 const englishTitle = "Anuj Gautam";
 const hindiTitle = "अनुज गौतम";
-
-// const [title, setTitle] = useState(englishTitle.split(""));
-// const [isHindi, setIsHindi] = useState(false);
-
-// useEffect(() => {
-// 	const intervalId = setInterval(() => {
-// 		setIsHindi(!isHindi);
-// 		setTitle(isHindi ? englishTitle.split("") : hindiTitle.split(""));
-// 	}, 2000);
-
-// 	return () => clearInterval(intervalId);
-// }, [isHindi]);
-
-let title = englishTitle;
 ---
 
 <BaseLayout>
-	<script>
-		let currentTitle = 'Anuj Gautam';
-		const englishTitle = 'Anuj Gautam';
-		const hindiTitle = 'अनुज गौतम';
-
-		setInterval(() => {
-			currentTitle = currentTitle === englishTitle ? hindiTitle : englishTitle;
-			document.querySelector('.hero h1').innerText = currentTitle;
-		}, 2000);
-	</script>
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
-				<Hero 
-					title={title}
+				<Hero >
+					<h1 class="title">
+						<span class="text_1">{englishTitle}</span>
+						<span class="text_2">{hindiTitle}</span>
+					</h1>
 					<p>
 						I'm a second-year astrophysics Ph.D. student at the
 						<a href="https://www.unisq.edu.au/research/institutes-centres/iaess/centre-for-astrophysics">
@@ -150,6 +126,92 @@ let title = englishTitle;
 </BaseLayout>
 
 <style>
+	
+	.text_1 {
+	font-size: var(--text-5xl);
+	color: var(--gray-0);
+	max-width: 37ch;
+	margin-inline: auto;
+	animation: text1;
+	}
+
+	.text_2 {
+	font-size: var(--text-5xl);
+	color: var(--gray-0);
+	max-width: 37ch;
+	margin-inline: auto;
+	animation: text2;
+	}
+
+	.text_1{
+	overflow: hidden;
+	white-space: nowrap;
+	display: inline-block;
+	position: relative;
+	animation-duration: 11s;
+	animation-timing-function: steps(25, end);
+	animation-iteration-count: infinite;
+	}
+	.text_2{
+	overflow: hidden;
+	white-space: nowrap;
+	display: inline-block;
+	position: relative;
+	animation-duration: 11s;
+	animation-timing-function: steps(25, end);
+	animation-iteration-count: infinite;
+	}
+
+	.text_1::after {
+	content: "_";
+	position: absolute;
+	right: 0;
+	animation: caret infinite;
+	animation-duration: 2s;
+	animation-timing-function: steps(1, end);
+	}
+
+	.text_2::after {
+	content: "_";
+	position: absolute;
+	right: 0;
+	animation: caret infinite;
+	animation-duration: 1s;
+	animation-timing-function: steps(1, end);
+	}
+
+	@keyframes text2 {
+	0%, 50%, 100% {
+		width: 0;
+		height: 1.2em;
+	}
+	
+	60%, 90% {
+		width: 6em;
+		height: 1.2em;
+	}
+	}
+
+	@keyframes text1 {
+	0%, 50%, 100% {
+		width: 0;
+		height: 1.2em;
+	}
+	10%, 40% {
+		width: 8em;
+		height: 1.2em;
+	}
+	}
+
+	@keyframes caret {
+	0%, 100% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	}
+
 	.hero {
 		display: flex;
 		flex-direction: column;
