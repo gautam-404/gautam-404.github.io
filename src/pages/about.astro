@@ -1,0 +1,168 @@
+---
+import Icon from '../components/Icon.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Anuj Gautam" description="About Anuj Gautam Lorem Ipsum">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/at-work.jpg"
+					alt="Anuj Gautam at work with a colleague"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						I am a Ph.D. student at the Center for Astrophysics, University of Southern Queensland, 
+						where I study stellar evolution and asteroseismology. 
+					</p>
+					<div style="height: 10px;"></div>
+					<p>
+						My academic journey began with a Bachelor's degree in Electronics and Telecommunication 
+						from the Army Institute of Technology, University of Pune, followed by a transition to astrophysics 
+						due to my growing fascination with the subject. Although my Master's studies at the Australian National 
+						University were interrupted, I continued to pursue astrophysics through a project on high-energy astrophysics 
+						at the same institution. There, I explored the rotational evolution of accretion induced collapse 
+						millisecond pulsars, using these stellar remnants to probe whether a hitherto unobserved population 
+						of them could explain the Milky Way bulge gamma-ray excess. This research experience reinforced my interest 
+						in computational stellar evolution and led me to my current research on delta Scuti stars.
+					</p>
+					<div style="height: 10px;"></div>
+					<p>
+						My current work is focussed on producing theoretical models for these stars to understand how 
+						various physical and computational parameters influence their pulsation behaviour. 
+						I use these stellar pulsation models to infer fundamental properties, like age, mass, 
+						and metallicities, for observed delta Scuti stars.
+					</p>
+				</div>
+			</section>
+			<!-- <section>
+				<h2 class="section-title">Education</h2>
+				<div class="content">
+					<p>Corporis voluptates tenetur laudantium.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<p>officia unde omnis</p>
+				</div>
+			</section> -->
+			<section>
+				<h2 class="section-title">Education</h2>
+				<div class="content">
+					<p><strong>2023 - Now:</strong> Ph.D., University of Southern Queensland  Astronomy and Astrophysics</p>
+					<p>Thesis title: <em>δ Scuti star evolution and pulsation modelling</em></p>
+					<div style="height: 10px;"></div>
+					<p><strong>2018 - 2020:</strong> M.Sc., Australian National University - Astronomy and Astrophysics</p>
+					<p>Thesis title: <em>Probing the millisecond pulsar interpretation of the Galactic Center Gamma-ray excess: A binary population synthesis study</em></p>
+					<p><em>[Attended 2 years and 4 months but did not receive diploma due to difficult financial circumstances]</em></p>
+					<div style="height: 10px;"></div>
+					<p><strong>2013 - 2017:</strong> B.E., Army Institute of Technology, Savitribai Phule Pune University</p>
+					<p>Electronics and Telecommunication Engineering</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Technical Skills</h2>
+				<div class="content">
+					<p><strong>Online Profile:</strong>  <Icon icon="github-logo"/>
+						<a href="https://github.com/gautam-404" target="_blank">https://github.com/gautam-404</a></p>
+					<p><strong>Programming and Scripting Languages:</strong> Python (5+ years), C++ (2 years), Shell, LaTeX</p>
+					<p><strong>Other languages:</strong> Matlab (2 years), Mathematica (Intermediate), IDL (Intermediate), Fortran (Intermediate)</p>
+					<p><strong>Operating Systems:</strong> UNIX/Linux (5+ years)</p>
+					<p><strong>High-Performance Computing:</strong> Parallel computing, Cloud computing, Docker containers</p>
+					<p><strong>Version Control:</strong> Git (Proficient)</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Miscellaneous Experience</h2>
+				<div class="content">
+					<h5>Computing Grants</h5>
+					<p><strong>2023 (Q3):</strong> NCI Adapter Scheme, 200 kSU to use at the GADI supercomputer</p>
+					<div style="height: 5px;"></div>
+					<p><strong>2023 (Q4):</strong> NCI Adapter Scheme, 200 kSU to use at the GADI supercomputer</p>
+					<div style="height: 5px;"></div>
+					<p><strong>2023:</strong> ARDC Nectar Research Cloud, 20 kSU for 12 months</p>
+					<div style="height: 5px;"></div>
+					<p><strong>2024:</strong> QCIF NCI Share, 75 kSU for each quarter to use at the GADI supercomputer</p>
+					<div style="height: 5px;"></div>
+					<p><strong>2024 (Q3 and Q4):</strong> Astronomy Supercomputer Time Allocation Committee (ASTAC), 2500 kSU to use under NCI Astronomy Program at the GADI supercomputer</p>
+					<div style="height: 5px;"></div>
+					<p><strong>2024:</strong> ARDC Nectar Research Cloud, 20 kSU for 12 months</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
